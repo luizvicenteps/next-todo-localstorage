@@ -13,7 +13,7 @@ export class TodoService {
   constructor() { }
 
   public getTasks(): Observable<Task[]> {
-
+    // return this.http.get(apiUrl)
     return of(this._getTasksLocalStorage())
   }
   public getTaskById(id: number): Observable<Task> {
@@ -21,11 +21,11 @@ export class TodoService {
     return of(this._getTaskByIdLocalStorage(id))
   }
   public addTask(taskTitle: string): Observable<Task> {
-
+    // return this.http.post(apiUrl, taskTitle)
     return of(this._addTaskLocalStorage(taskTitle))
   }
   public updateTask(task: Task): Observable<Task> {
-
+    // return this.http.put(apiUrl, task)
     return of(this._updateTaskLocalStorage(task))
   }
   public deleteTask(id: number): Observable<Task> {

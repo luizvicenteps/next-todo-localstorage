@@ -50,6 +50,11 @@ const rotas: Routes = [
     path: 'sobre',
     component: AboutComponent
   },
+  {
+    path: '**',
+    redirectTo: '/inicio',
+    pathMatch: 'full'
+  },
 
 ];
 
