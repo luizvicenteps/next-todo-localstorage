@@ -1,0 +1,38 @@
+.all-tasks {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.done, .todo{
+  width: 500px;
+  margin: 0 10px;
+  background-color: darksalmon;
+  padding: 20px;
+  border-radius: 10px;
+}
+.done {
+  background-color: #89db9d;
+}
+
+mat-card {
+  margin: 10px 0;
+}
+
+.material-icons {
+  font-size: 20px !important;
+}
+.mat-mini-fab {
+  width: 22px;
+  height: 22px;
+}
+.task {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.btn-add {
+  margin: 0 20px;
+}
+.task > span {
+  margin: 10px;
+}

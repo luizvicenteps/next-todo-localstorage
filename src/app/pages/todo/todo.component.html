@@ -1,0 +1,47 @@
+<p>Tarefas</p>
+<div class="form">
+    <mat-form-field class="input-new-task" appearance="fill">
+        <mat-label>Nova Tarefa</mat-label>
+        <input matInput placeholder="task" type="text" [(ngModel)]="valueInput"/>
+        <button  
+            *ngIf="valueInput" 
+            matSuffix mat-icon-button aria-label="Clear" (click)="valueInput=''">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+    <button [disabled]="disableInput()" class="btn-add" mat-raised-button color="primary" (click)="adicionarTask()">Adicionar</button>
+</div>
+<div class="all-tasks">
+    <div class="todo">
+        <h2>Não feitas</h2>
+        <mat-card class="tasks" *ngFor="let task of getTasksByStatusDone(false)" > 
+            <div class="task">
+                <span> {{ task.title }}</span>
+                <div class="actions">
+                    <button mat-icon-button color="primary" (click)="finishTask(task.id)" aria-label="Example icon button with a delete icon">
+                        <mat-icon>done</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="removerTask(task.id)"  aria-label="Example icon button with a delete icon">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </mat-card>    
+    </div>    
+    <div class="done">
+        <h2>Feitas</h2>
+        <mat-card class="tasks" *ngFor="let task of getTasksByStatusDone(true)" > 
+            <div class="task" >
+                <span style="text-decoration: line-through;"> {{ task.title }}</span>
+                <div class="actions">
+                    <button mat-icon-button color="primary" (click)="todoTask(task.id)" aria-label="Example icon button with a delete icon">
+                        <mat-icon>settings_backup_restore</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" color="warn" (click)="removerTask(task.id)"  aria-label="Example icon button with a delete icon">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </mat-card>        
+    </div>
+</div>
